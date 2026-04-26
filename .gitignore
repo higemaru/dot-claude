@@ -21,3 +21,6 @@
 !templates/
 !templates/**/
 !templates/**
+!scripts/
+!scripts/**/
+!scripts/**
