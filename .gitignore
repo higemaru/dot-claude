@@ -1,0 +1,23 @@
+# ホワイトリスト方式：全除外してから必要なものだけ許可
+# 全除外
+*
+.*
+
+# ルートファイル
+!CLAUDE.md
+!README.md
+!settings.json
+!skills-reference.md
+!statusline-command.sh
+!.gitignore
+
+# ディレクトリ（中身ごと許可）
+!rules/
+!rules/**/
+!rules/**
+!skills/
+!skills/**/
+!skills/**
+!templates/
+!templates/**/
+!templates/**
