@@ -1,0 +1,42 @@
+{
+  "language": "Japanese",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'echo \"=== 前回からの引き継ぎ ===\"; [ -f resources/progress.md ] && cat resources/progress.md || echo \"進捗記録なし\"; echo; echo \"=== 残タスク ===\"; [ -f resources/todo.md ] && cat resources/todo.md || echo \"残タスクなし\"'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'ls manuscript/*.md 2>/dev/null | head -1 > /dev/null && mkdir -p resources && echo \"最終更新: $(date +\"%Y-%m-%d %H:%M\")\" >> resources/progress.md'",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_FILE_PATH\"; if [[ \"$FILE\" == *.md && \"$FILE\" != */resources/* ]]; then COUNT=$(wc -m < \"$FILE\" 2>/dev/null || echo 0); echo \"文字数: ${COUNT}字 [${FILE##*/}]\"; fi'",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
