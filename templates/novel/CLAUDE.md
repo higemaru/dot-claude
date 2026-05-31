@@ -8,7 +8,7 @@
 
 ## 参照ファイル
 - 登場人物: @resources/characters.md
-- プロット:  @resources/plot.md
+- プロット:  @resources/plot.md （序破急 or Save the Cat、ending_type で決定済み）
 - 進捗:      @resources/progress.md
 - 残タスク:  @resources/todo.md
 - 文体ガイド: @resources/style-guide.md
