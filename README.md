@@ -9,20 +9,22 @@ cp -r . ~/.claude/
 ```
 
 ### settings.json のマージ
+
 既存の settings.json がある場合は、`"hooks"` ブロックを既存ファイルに追記してください。
 
----
+------
 
 ## ディレクトリ構成
 
 ```
 ~/.claude/
-  CLAUDE.md              グローバル習慣・共通ルール
+  CLAUDE.md              グローバル設定（汎用のみ・口調と共通動作指示）
   settings.json          Hooks設定（起動時表示・文字数カウント）
   README.md              このファイル
   skills-reference.md    スキル一覧早見表
   statusline-command.sh  ステータスライン表示スクリプト
   rules/
+    writing-workflow.md  執筆の進め方・セッション管理（執筆プロジェクトが import）
     novel-dna.md         小説の作風DNA
     technical-dna.md     技術書の作風DNA
   scripts/
@@ -44,11 +46,12 @@ cp -r . ~/.claude/
     technical/           /tech-init のコピー元
 ```
 
----
+------
 
 ## 新規プロジェクトの始め方
 
 ### 小説
+
 ```bash
 mkdir project-name && cd project-name
 claude
@@ -56,6 +59,7 @@ claude
 ```
 
 ### 技術書
+
 ```bash
 mkdir project-name && cd project-name
 claude
@@ -69,22 +73,22 @@ claude
 > /end … セッション終了時の引き継ぎ作成
 ```
 
----
+------
 
 ## Hooks の動作
 
 settings.json 内で定義。Hooks は「依頼・お願い」ではなく「指示」です。必ず実行されます。
 
-| タイミング | 動作 |
-|---|---|
-| セッション開始時 | progress.md と todo.md を表示 |
-| 原稿ファイル編集後 | 文字数を表示（非同期） |
+| タイミング         | 動作                          |
+| ------------------ | ----------------------------- |
+| セッション開始時   | progress.md と todo.md を表示 |
+| 原稿ファイル編集後 | 文字数を表示（非同期）        |
 
 ## Ctrl+D で終了した場合
 
 progress.md / todo.md の更新は `/end` スキルが担っています。`/end` を実行せずに `Ctrl+D` で抜けると、前回 `/end` を実行した時点までしか記録が残りません。セッションを終える時は `/end` を使うことを推奨します。
 
----
+------
 
 ## トランスクリプトの保存
 

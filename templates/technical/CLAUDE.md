@@ -1,7 +1,7 @@
 # {{書籍タイトル}} — プロジェクト設定
 
 ## ジャンル宣言
-技術書。@~/.claude/rules/technical-dna.md を読むこと。
+技術書。@~/.claude/rules/writing-workflow.md と @~/.claude/rules/technical-dna.md を読むこと。
 
 ## このプロジェクトについて
 - キーワード: {{偏愛・安逸・常楽など}}

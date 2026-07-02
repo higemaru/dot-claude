@@ -1,7 +1,7 @@
 # {{作品タイトル}} — プロジェクト設定
 
 ## ジャンル宣言
-小説。@~/.claude/rules/novel-dna.md を読むこと。
+小説。@~/.claude/rules/writing-workflow.md と @~/.claude/rules/novel-dna.md を読むこと。
 
 ## このプロジェクトについて
 （作品の一言説明）

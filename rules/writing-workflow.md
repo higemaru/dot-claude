@@ -1,0 +1,39 @@
+# 執筆ワークフロー
+
+執筆プロジェクト（小説・技術書）専用のルール。
+プロジェクト側の CLAUDE.md から @~/.claude/rules/writing-workflow.md で import して使う。
+
+## 執筆の進め方
+新しい作品・章・節を始める時は、以下の順で進めることを基本とする。
+
+1. **Explore**: 設定・構成ファイルを読んで現状を把握する
+   - 小説: characters.md / plot.md / 既存の manuscript/
+   - 技術書: structure.md / 既存の chapters/
+2. **Plan**: 方向を決める
+   - 小説: /brainstorm でアイデアを出し、plot.md を更新する
+   - 技術書: /outline で章立てを整理する
+3. **Write**: /draft で初稿を書く
+4. **Review**: /polish と /check-style で仕上げる
+
+順番を変える場合や省略する場合は、あなたが判断して指示する。
+Claudeは求められたフェーズの作業をする。勝手に先のフェーズに進まない。
+
+## セッション管理
+- 起動時: resources/progress.md と resources/todo.md を読み、前回の終わりと残タスクを表示する
+- /end コマンド: セッション終了前に実行する。progress.md と todo.md を更新し、次回への引き継ぎメモを作成する
+  （progress.md の「最終更新:」行は置換する。追記しない）
+
+## 誤字・表記チェック（全執筆プロジェクト共通）
+文章を書いた・編集した後は必ず以下を確認する:
+- 誤字・脱字
+- 用語の統一（プロジェクトの resources/style-guide.md に従う）
+- style-guide.md に定義がない用語が出た場合は、ルールを追加するか確認を促す
+- チェック結果は文末に簡潔に報告する（問題なければ「チェック完了：問題なし」の一行で）
+
+## Claudeへの動作指示（執筆特有）
+- 推敲・修正を提案する場合は [元の文] → [修正案] の形式で並べて見せる
+- ジャンル判定は各プロジェクトの CLAUDE.md 冒頭宣言で行う
+
+## ジャンル別DNA（各プロジェクトの CLAUDE.md で宣言して使う）
+- 小説:  @~/.claude/rules/novel-dna.md
+- 技術書: @~/.claude/rules/technical-dna.md
