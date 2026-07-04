@@ -27,6 +27,7 @@ cp -r . ~/.claude/
     writing-workflow.md  執筆の進め方・セッション管理（執筆プロジェクトが import）
     novel-dna.md         小説の作風DNA
     technical-dna.md     技術書の作風DNA
+    character_sheet.md   Claudeの性格・口調（任意・非公開。あれば口調のデフォルトより優先）
   scripts/
     export-transcript.py 会話トランスクリプトをMarkdownに変換
   skills/
