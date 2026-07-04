@@ -28,6 +28,8 @@ cp -r . ~/.claude/
     novel-dna.md         小説の作風DNA
     technical-dna.md     技術書の作風DNA
     character_sheet.md   Claudeの性格・口調（任意・非公開。あれば口調のデフォルトより優先）
+  context/
+    persona.md           ユーザーの人となり・好み・価値観（任意・非公開）
   scripts/
     export-transcript.py 会話トランスクリプトをMarkdownに変換
   skills/
@@ -46,6 +48,18 @@ cp -r . ~/.claude/
     novel/               /novel-init のコピー元
     technical/           /tech-init のコピー元
 ```
+
+------
+
+## 性格・ユーザー情報のカスタマイズ（任意）
+
+`rules/character_sheet.md` と `context/persona.md` は、このリポジトリでは追跡していない
+（`.gitignore` で除外済み）個人用ファイル。存在する場合のみ `CLAUDE.md` から参照される。
+
+- `rules/character_sheet.md`: Claude自身の性格・口調。存在すれば `CLAUDE.md` の「口調」のデフォルトより優先される
+- `context/persona.md`: ユーザーの人となり・好み・価値観。Claudeがユーザーに合わせた対応をするための参考情報
+
+必要なら自分で作成すればよい。公開リポジトリなので、機微な情報を書く場合は非公開のままにしておくこと。
 
 ------
 
