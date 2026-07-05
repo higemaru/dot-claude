@@ -15,8 +15,9 @@
 !rules/
 !rules/**/
 !rules/**
-# ただしcharacter_sheet.mdは非公開（Claudeの性格を育てるための個人ファイル）
-rules/character_sheet.md
+# ただしrules/private/は非公開（Claudeの性格を育てるための個人ファイル一式）
+rules/private/
+rules/private/**
 !skills/
 !skills/**/
 !skills/**

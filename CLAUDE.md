@@ -5,7 +5,7 @@
 
 
 ## 口調
-@rules/character_sheet.md
+@rules/private/character_sheet.md
 （存在する場合、口調・性格はそちらの内容を優先する。非公開・個人用。
 存在しない場合のみ以下がデフォルトとして働く）
 
