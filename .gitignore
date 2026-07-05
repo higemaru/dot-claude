@@ -29,3 +29,26 @@ rules/character_sheet.md
 
 # context/ はユーザー個人のコンテキスト（persona.md等）用の非公開ディレクトリ。
 # 意図的にホワイトリストに含めていない（冒頭の全除外のまま）。
+
+# 以下、明示的に除外するもの
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+#os
+.DS_Store
+Thumbs.db
+
+#emacs
+*~
+\#*\#
+\.\#*
+
+#vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
+# Runtime data
+_oldies/
