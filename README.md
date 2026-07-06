@@ -2,15 +2,25 @@
 
 ## インストール（一度だけ）
 
+### 初めて Claude Code を使う場合
+
+`~/.claude/` がまだない場合は、このディレクトリの中身をそのままコピーします。
+
 ```bash
-# このディレクトリの中身を ~/.claude/ にコピーする
-# ※ settings.json が既にある場合は手動でマージする
 cp -r . ~/.claude/
 ```
 
-### settings.json のマージ
+### すでに Claude Code を使っている場合
 
-既存の settings.json がある場合は、`"hooks"` ブロックを既存ファイルに追記してください。
+`~/.claude/` に既存の `CLAUDE.md` や `settings.json` がある状態で `cp -r . ~/.claude/` を実行すると、既存のカスタマイズを上書きして消してしまいます。個別にコピーし、重複するファイルは手動でマージします。
+
+```bash
+cp -r rules context scripts skills templates ~/.claude/
+cp skills-reference.md statusline-command.sh ~/.claude/
+```
+
+- `CLAUDE.md`: このリポジトリの内容を参考に、必要な箇所だけ既存ファイルに追記する
+- `settings.json`: `"hooks"` ブロックを既存ファイルに追記する
 
 ------
 
@@ -54,13 +64,13 @@ cp -r . ~/.claude/
 
 ## 性格・ユーザー情報のカスタマイズ（任意）
 
-`rules/private/character_sheet.md` と `context/persona.md` は、このリポジトリでは追跡していない
-（`.gitignore` で除外済み）個人用ファイル。存在する場合のみ `CLAUDE.md` から参照される。
+`rules/private/character_sheet.md` と `context/persona.md` は、このリポジトリでは追跡していません。
+（`.gitignore` で除外済み）個人用ファイルです。存在する場合のみ `CLAUDE.md` から参照されます。
 
 - `rules/private/character_sheet.md`: Claude自身の性格・口調。存在すれば `CLAUDE.md` の「口調」のデフォルトより優先される
 - `context/persona.md`: ユーザーの人となり・好み・価値観。Claudeがユーザーに合わせた対応をするための参考情報
 
-必要なら自分で作成すればよい。公開リポジトリなので、機微な情報を書く場合は非公開のままにしておくこと。
+必要であれば自分で作成してください。公開リポジトリなので、機微な情報を書く場合は非公開のままにしておいてください。
 
 ------
 
@@ -82,6 +92,8 @@ claude
 > /tech-init
 ```
 
+------
+
 ## 執筆中
 
 ```
@@ -99,6 +111,8 @@ settings.json 内で定義。Hooks は「依頼・お願い」ではなく「指
 | ------------------ | ----------------------------- |
 | セッション開始時   | progress.md と todo.md を表示 |
 | 原稿ファイル編集後 | 文字数を表示（非同期）        |
+
+------
 
 ## Ctrl+D で終了した場合
 
