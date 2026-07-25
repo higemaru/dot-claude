@@ -1,6 +1,8 @@
 ---
 name: check-style
 description: 原稿がDNAの文体ルールに沿っているかを確認する。誤字チェック（/check-text）とは別物。文体の質的な確認。
+context: fork
+agent: Explore
 ---
 
 ## 他のチェックスキルとの使い分け

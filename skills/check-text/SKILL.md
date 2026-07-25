@@ -1,6 +1,8 @@
 ---
 name: check-text
 description: 誤字・脱字・用語統一をチェックする。文体の質的確認は /check-style、著作物確認は /check-copyright を使う。
+context: fork
+agent: Explore
 ---
 
 ## 他のチェックスキルとの使い分け
