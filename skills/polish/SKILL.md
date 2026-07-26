@@ -1,8 +1,6 @@
 ---
 name: polish
 description: 初稿を推敲する。修正案を [元の文] → [修正案] 形式で提示する。置き換えはあなたが判断する。
-context: fork
-agent: Explore
 ---
 
 ## 実行手順
