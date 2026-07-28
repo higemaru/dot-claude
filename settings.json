@@ -28,6 +28,29 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "language": "Japanese",
+  "tui": "fullscreen",
   "theme": "dark",
-  "tui": "fullscreen"
+  "permissions": {
+    "defaultMode": "acceptEdits"
+  },
+  "sandbox": {
+    "enabled": true,
+    "credentials": {
+      "files": [
+        { "path": "~/.ssh", "mode": "deny" },
+        { "path": "~/.gnupg", "mode": "deny" },
+        { "path": "~/.claude.json", "mode": "deny" },
+        { "path": "~/.boto", "mode": "deny" },
+        { "path": "~/.bashrc", "mode": "deny" },
+        { "path": "~/.bashrc.backup", "mode": "deny" },
+        { "path": "~/.bash_history", "mode": "deny" },
+        { "path": "~/.zsh_history", "mode": "deny" },
+        { "path": "~/.python_history", "mode": "deny" },
+        { "path": "~/.lesshst", "mode": "deny" }
+      ],
+      "envVars": [
+        { "name": "ANTHROPIC_API_KEY", "mode": "deny" }
+      ]
+    }
+  }
 }

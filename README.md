@@ -29,7 +29,7 @@ cp skills-reference.md statusline-command.sh ~/.claude/
 ```
 ~/.claude/
   CLAUDE.md              グローバル設定（汎用のみ・口調と共通動作指示）
-  settings.json          Hooks設定（起動時表示・文字数カウント）
+  settings.json          Hooks / サンドボックス / 権限設定
   README.md              このファイル
   skills-reference.md    スキル一覧早見表
   statusline-command.sh  ステータスライン表示スクリプト
