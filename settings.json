@@ -46,10 +46,28 @@
         { "path": "~/.bash_history", "mode": "deny" },
         { "path": "~/.zsh_history", "mode": "deny" },
         { "path": "~/.python_history", "mode": "deny" },
-        { "path": "~/.lesshst", "mode": "deny" }
+        { "path": "~/.lesshst", "mode": "deny" },
+        { "path": "~/.aws", "mode": "deny" },
+        { "path": "~/.azure", "mode": "deny" },
+        { "path": "~/.netrc", "mode": "deny" },
+        { "path": "~/.npmrc", "mode": "deny" },
+        { "path": "~/.git-credentials", "mode": "deny" },
+        { "path": "~/.config/gcloud", "mode": "deny" },
+        { "path": "~/.config/rclone", "mode": "deny" },
+        { "path": "~/.docker/config.json", "mode": "deny" }
       ],
       "envVars": [
-        { "name": "ANTHROPIC_API_KEY", "mode": "deny" }
+        { "name": "ANTHROPIC_API_KEY", "mode": "deny" },
+        { "name": "AWS_ACCESS_KEY_ID", "mode": "deny" },
+        { "name": "AWS_SECRET_ACCESS_KEY", "mode": "deny" },
+        { "name": "AWS_SESSION_TOKEN", "mode": "deny" },
+        { "name": "GITHUB_TOKEN", "mode": "deny" },
+        { "name": "GH_TOKEN", "mode": "deny" },
+        { "name": "NPM_TOKEN", "mode": "deny" },
+        { "name": "OPENAI_API_KEY", "mode": "deny" },
+        { "name": "HOMEBREW_GITHUB_API_TOKEN", "mode": "deny" },
+        { "name": "GEMINI_API_KEY", "mode": "deny" },
+        { "name": "GOOGLE_API_KEY", "mode": "deny" }
       ]
     }
   }
