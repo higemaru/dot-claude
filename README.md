@@ -34,7 +34,7 @@ cp skills-reference.md statusline-command.sh ~/.claude/
   skills-reference.md    スキル一覧早見表
   statusline-command.sh  ステータスライン表示スクリプト
   rules/
-    writing-workflow.md  執筆の進め方・セッション管理（執筆プロジェクトが import）
+    writing-workflow.md  役割・執筆の進め方・セッション管理（執筆プロジェクトが import）
     novel-dna.md         小説の作風DNA
     technical-dna.md     技術書の作風DNA
     private/             非公開ファイル置き場（.gitignoreで丸ごと除外）
