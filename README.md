@@ -16,7 +16,7 @@ cp -r . ~/.claude/
 
 ```bash
 cp -r rules context scripts skills templates ~/.claude/
-cp skills-reference.md statusline-command.sh ~/.claude/
+cp skills-reference.md statusline.py ~/.claude/
 ```
 
 - `CLAUDE.md`: このリポジトリの内容を参考に、必要な箇所だけ既存ファイルに追記する
@@ -32,7 +32,7 @@ cp skills-reference.md statusline-command.sh ~/.claude/
   settings.json          Hooks / サンドボックス / 権限設定
   README.md              このファイル
   skills-reference.md    スキル一覧早見表
-  statusline-command.sh  ステータスライン表示スクリプト
+  statusline.py          ステータスライン表示スクリプト
   rules/
     writing-workflow.md  役割・執筆の進め方・セッション管理（執筆プロジェクトが import）
     novel-dna.md         小説の作風DNA

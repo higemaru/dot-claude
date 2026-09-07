@@ -8,7 +8,7 @@
 !README.md
 !settings.json
 !skills-reference.md
-!statusline-command.sh
+!statusline.py
 !.gitignore
 
 # ディレクトリ（中身ごと許可）
