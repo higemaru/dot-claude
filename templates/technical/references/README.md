@@ -12,7 +12,7 @@
 
 ## フォーマット例
 ### 公式ドキュメント
-- [Claude Code Docs](https://docs.claude.com) — スキル・コマンドの仕様
+- [Claude Code Docs](https://code.claude.com/docs) — スキル・コマンドの仕様
 
 ### 記事
 - タイトル / URL / 参照日 / メモ

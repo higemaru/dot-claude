@@ -11,40 +11,36 @@ description: 小説プロジェクトを初期化する。テンプレートを�
        - 余韻（情景・感情の残像で終わる）→ 序破急で構成
        - 解決（問題解決・主人公の変容で終わる）→ Save the Cat 15 beats で構成」
 
-2. テンプレートをコピーする
+2. テンプレートをコピーする（CLAUDE.local.md も一緒に入る）
 ```bash
 cp -r ~/.claude/templates/novel/. .
 ```
 
-3. CLAUDE.local.md をコピーする
-```bash
-cp ~/.claude/templates/novel/CLAUDE.local.md .
-```
 
-4. .gitignore を作成する
+3. .gitignore を作成する
 ```bash
 cat > .gitignore << 'EOF'
 CLAUDE.local.md
 EOF
 ```
 
-5. コピーしたファイル内のプレースホルダーを置換する
+4. コピーしたファイル内のプレースホルダーを置換する
 ```bash
 TITLE="（入力されたタイトル）"
 find . -name "*.md" | xargs sed -i "" "s/{{タイトル}}/${TITLE}/g"
 find . -name "*.md" | xargs sed -i "" "s/{{作品タイトル}}/${TITLE}/g"
 ```
 
-6. manuscript/ と materials/ ディレクトリを作成する
+5. manuscript/ と materials/ ディレクトリを作成する
 ```bash
 mkdir -p manuscript materials
 ```
 
-7. resources/plot.md の ending_type を確定させる
+6. resources/plot.md の ending_type を確定させる
    - 余韻 を選んだ場合：序破急テンプレートのみ残し、Save the Cat セクションを削除する
    - 解決 を選んだ場合：Save the Cat 15 beats テンプレートのみ残し、序破急セクションを削除する
 
-8. 完了後、以下を案内する
+7. 完了後、以下を案内する
    - 作成されたファイルの一覧
    - 選択した構成方針（余韻→序破急 / 解決→Save the Cat）
    - 次のステップ：
