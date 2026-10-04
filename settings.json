@@ -124,6 +124,7 @@
   "language": "Japanese",
   "sandbox": {
     "enabled": true,
+    "autoAllowBashIfSandboxed": false,
     "network": {
       "allowedDomains": [
         "github.com",
