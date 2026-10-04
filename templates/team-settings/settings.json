@@ -99,6 +99,7 @@
   },
   "sandbox": {
     "enabled": true,
+    "autoAllowBashIfSandboxed": true,
     "filesystem": {
       "allowWrite": [],
       "denyWrite": [],

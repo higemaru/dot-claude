@@ -54,11 +54,11 @@ Write と Glob はパスのルールが効かないので書いていません�
 
 Bash コマンドを macOS の sandbox の中で実行します。
 
-sandbox の中で動く Bash コマンドは、確認なしで自動実行されます（`autoAllowBashIfSandboxed` を省略したときの既定値 `true`）。ただし、自動で許可する前に必ず deny ルールと ask ルールが照合されるので、rm・sudo・push・`curl | sh` などは確認が出ます。
+sandbox の中で動く Bash コマンドは、確認なしで自動実行されます（`autoAllowBashIfSandboxed: true`。省略したときの既定値も `true`）。ただし、自動で許可する前に必ず deny ルールと ask ルールが照合されるので、rm・sudo・push・`curl | sh` などは確認が出ます。
 
 確認が毎回出ると、中身を読まずに承認する癖がつきやすくなります。sandbox で被害の範囲を囲ったうえで確認を減らし、**確認が出たら立ち止まる**、という使い方を身につけるための設定です。自動で実行されたコマンドも画面には表示されるので、Claude が何をしたかは確認できます。
 
-すべての Bash コマンドで確認を出したい場合は、`"autoAllowBashIfSandboxed": false` を追加します。
+すべての Bash コマンドで確認を出したい場合は、`autoAllowBashIfSandboxed` を `false` に書き換えます。
 
 - `filesystem`: sandbox の中での読み書きの範囲を追加・制限する。追加する場所がわかるよう、空の配列を置いてある
   - `allowWrite` / `denyWrite`: 書き込みを許可・拒否するパス（Edit の allow / deny ルールのパスと合算される）
