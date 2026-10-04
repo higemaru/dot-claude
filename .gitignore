@@ -21,6 +21,11 @@ rules/private/**
 !skills/
 !skills/**/
 !skills/**
+# ただしclaude.aiから自動同期されるスキルとその削除待ちは除外（Claude Codeが管理する）
+skills/synced/
+skills/synced/**
+skills/.trash/
+skills/.trash/**
 !templates/
 !templates/**/
 !templates/**
