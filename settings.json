@@ -28,6 +28,15 @@
       "Read(~/.zshenv)",
       "Edit(~/.zshenv)",
       "Grep(~/.zshenv)",
+      "Read(~/.profile)",
+      "Edit(~/.profile)",
+      "Grep(~/.profile)",
+      "Read(~/.zprofile)",
+      "Edit(~/.zprofile)",
+      "Grep(~/.zprofile)",
+      "Read(~/.bash_profile)",
+      "Edit(~/.bash_profile)",
+      "Grep(~/.bash_profile)",
       "Read(~/.bash_history)",
       "Edit(~/.bash_history)",
       "Grep(~/.bash_history)",
@@ -155,6 +164,18 @@
         },
         {
           "path": "~/.zshenv",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.profile",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zprofile",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.bash_profile",
           "mode": "deny"
         },
         {
