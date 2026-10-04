@@ -22,6 +22,12 @@
       "Read(~/.bashrc.backup)",
       "Edit(~/.bashrc.backup)",
       "Grep(~/.bashrc.backup)",
+      "Read(~/.zshrc)",
+      "Edit(~/.zshrc)",
+      "Grep(~/.zshrc)",
+      "Read(~/.zshenv)",
+      "Edit(~/.zshenv)",
+      "Grep(~/.zshenv)",
       "Read(~/.bash_history)",
       "Edit(~/.bash_history)",
       "Grep(~/.bash_history)",
@@ -64,6 +70,11 @@
     ],
     "ask": [
       "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(rm -Rf *)",
+      "Bash(rm -r *)",
+      "Bash(rm -R *)",
+      "Bash(sudo *)",
       "Bash(git push --force*)",
       "Bash(git push -f*)",
       "Bash(git reset --hard*)",
@@ -136,6 +147,14 @@
         },
         {
           "path": "~/.bashrc.backup",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zshrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zshenv",
           "mode": "deny"
         },
         {
