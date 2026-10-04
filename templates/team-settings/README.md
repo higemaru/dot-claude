@@ -19,8 +19,8 @@ cp settings.json ~/.claude/settings.json
 
 ### permissions.defaultMode: "acceptEdits"
 
-ファイルの編集と、よく使うファイル操作のコマンドだけを自動で承認します。それ以外の Bash コマンドは毎回確認が出ます（下の `sandbox.autoAllowBashIfSandboxed: false` とセットで効きます）。
-Claude が何をしようとしているかを、確認ダイアログで毎回見られるようにするための設定です。慣れてきたら `auto`（別のモデルが操作を審査し、低リスクのものを自動実行する）を検討します。
+ファイルの編集と、よく使うファイル操作のコマンドを自動で承認します。sandbox を有効にしているので、sandbox の中で動く Bash コマンドも確認なしで実行されます（下の sandbox の節を参照）。
+確認が出るのは、ask ルールに当たったとき、許可していないドメインに通信するとき、などに絞られます。慣れてきたら `auto`（別のモデルが操作を審査し、低リスクのものを自動実行する）を検討します。
 
 ### permissions.disableBypassPermissionsMode: "disable"
 
@@ -30,7 +30,7 @@ Claude が何をしようとしているかを、確認ダイアログで毎回�
 
 実行前に必ず確認を出すコマンドです。`auto` モードでも ask ルールが優先されます。
 
-- `rm -rf` などの再帰削除（フラグの書き方違いも含む）
+- `rm` すべて（単発の削除も含む。git を使わない作業では消したファイルを戻せないので、削除は安全寄りにしている）
 - `sudo`
 - `git push`（`--force` / `-f` を含むすべて）/ `git reset --hard` / `git clean -f`
 - `curl` / `wget` の出力をパイプで `sh` に渡す形（`curl ... | sh` など）
@@ -54,7 +54,11 @@ Write と Glob はパスのルールが効かないので書いていません�
 
 Bash コマンドを macOS の sandbox の中で実行します。
 
-- `autoAllowBashIfSandboxed: false`: sandbox の中で動く Bash コマンドも、確認を出すようにする。省略すると `true` になり、sandbox の中のコマンドは ask ルールに当たらない限り確認なしで自動実行される（acceptEdits でも同じ）。sandbox を有効にするなら、この 1 行がないと「毎回確認を見る」にならない
+sandbox の中で動く Bash コマンドは、確認なしで自動実行されます（`autoAllowBashIfSandboxed` を省略したときの既定値 `true`）。ただし、自動で許可する前に必ず deny ルールと ask ルールが照合されるので、rm・sudo・push・`curl | sh` などは確認が出ます。
+
+確認が毎回出ると、中身を読まずに承認する癖がつきやすくなります。sandbox で被害の範囲を囲ったうえで確認を減らし、**確認が出たら立ち止まる**、という使い方を身につけるための設定です。自動で実行されたコマンドも画面には表示されるので、Claude が何をしたかは確認できます。
+
+すべての Bash コマンドで確認を出したい場合は、`"autoAllowBashIfSandboxed": false` を追加します。
 
 - `filesystem`: sandbox の中での読み書きの範囲を追加・制限する。追加する場所がわかるよう、空の配列を置いてある
   - `allowWrite` / `denyWrite`: 書き込みを許可・拒否するパス（Edit の allow / deny ルールのパスと合算される）

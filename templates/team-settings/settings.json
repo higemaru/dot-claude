@@ -4,11 +4,7 @@
     "defaultMode": "acceptEdits",
     "disableBypassPermissionsMode": "disable",
     "ask": [
-      "Bash(rm -rf *)",
-      "Bash(rm -fr *)",
-      "Bash(rm -Rf *)",
-      "Bash(rm -r *)",
-      "Bash(rm -R *)",
+      "Bash(rm *)",
       "Bash(sudo *)",
       "Bash(git push --force*)",
       "Bash(git push -f*)",
@@ -103,7 +99,6 @@
   },
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": false,
     "filesystem": {
       "allowWrite": [],
       "denyWrite": [],
