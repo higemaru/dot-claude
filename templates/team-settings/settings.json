@@ -1,0 +1,272 @@
+{
+  "language": "Japanese",
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "disableBypassPermissionsMode": "disable",
+    "ask": [
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(rm -Rf *)",
+      "Bash(rm -r *)",
+      "Bash(rm -R *)",
+      "Bash(sudo *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git push*)",
+      "Bash(curl *|*sh*)",
+      "Bash(wget *|*sh*)"
+    ],
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Edit(~/.ssh/**)",
+      "Grep(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Edit(~/.gnupg/**)",
+      "Grep(~/.gnupg/**)",
+      "Read(~/.claude.json)",
+      "Edit(~/.claude.json)",
+      "Grep(~/.claude.json)",
+      "Read(~/.boto)",
+      "Edit(~/.boto)",
+      "Grep(~/.boto)",
+      "Read(~/.bashrc)",
+      "Edit(~/.bashrc)",
+      "Grep(~/.bashrc)",
+      "Read(~/.zshrc)",
+      "Edit(~/.zshrc)",
+      "Grep(~/.zshrc)",
+      "Read(~/.zshenv)",
+      "Edit(~/.zshenv)",
+      "Grep(~/.zshenv)",
+      "Read(~/.profile)",
+      "Edit(~/.profile)",
+      "Grep(~/.profile)",
+      "Read(~/.zprofile)",
+      "Edit(~/.zprofile)",
+      "Grep(~/.zprofile)",
+      "Read(~/.bash_profile)",
+      "Edit(~/.bash_profile)",
+      "Grep(~/.bash_profile)",
+      "Read(~/.bash_history)",
+      "Edit(~/.bash_history)",
+      "Grep(~/.bash_history)",
+      "Read(~/.zsh_history)",
+      "Edit(~/.zsh_history)",
+      "Grep(~/.zsh_history)",
+      "Read(~/.python_history)",
+      "Edit(~/.python_history)",
+      "Grep(~/.python_history)",
+      "Read(~/.lesshst)",
+      "Edit(~/.lesshst)",
+      "Grep(~/.lesshst)",
+      "Read(~/.aws/**)",
+      "Edit(~/.aws/**)",
+      "Grep(~/.aws/**)",
+      "Read(~/.azure/**)",
+      "Edit(~/.azure/**)",
+      "Grep(~/.azure/**)",
+      "Read(~/.netrc)",
+      "Edit(~/.netrc)",
+      "Grep(~/.netrc)",
+      "Read(~/.npmrc)",
+      "Edit(~/.npmrc)",
+      "Grep(~/.npmrc)",
+      "Read(~/.git-credentials)",
+      "Edit(~/.git-credentials)",
+      "Grep(~/.git-credentials)",
+      "Read(~/.config/gcloud/**)",
+      "Edit(~/.config/gcloud/**)",
+      "Grep(~/.config/gcloud/**)",
+      "Read(~/.config/rclone/**)",
+      "Edit(~/.config/rclone/**)",
+      "Grep(~/.config/rclone/**)",
+      "Read(~/.docker/config.json)",
+      "Edit(~/.docker/config.json)",
+      "Grep(~/.docker/config.json)",
+      "Read(~/.claude/.credentials.json)",
+      "Edit(~/.claude/.credentials.json)",
+      "Grep(~/.claude/.credentials.json)",
+      "Read(**/.env)",
+      "Edit(**/.env)",
+      "Grep(**/.env)",
+      "Read(**/.env.*)",
+      "Edit(**/.env.*)",
+      "Grep(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Edit(**/secrets/**)",
+      "Grep(**/secrets/**)"
+    ],
+    "blockReadsOutsideWorkingDirectories": true,
+    "additionalDirectories": []
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": false,
+    "filesystem": {
+      "allowWrite": [],
+      "denyWrite": [],
+      "denyRead": [],
+      "allowRead": []
+    },
+    "credentials": {
+      "files": [
+        {
+          "path": "~/.ssh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gnupg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude.json",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.boto",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.bashrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zshrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zshenv",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.profile",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zprofile",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.bash_profile",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.bash_history",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.zsh_history",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.python_history",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.lesshst",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.aws",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.azure",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.netrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.git-credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gcloud",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/rclone",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.docker/config.json",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude/.credentials.json",
+          "mode": "deny"
+        }
+      ],
+      "envVars": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SESSION_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GITHUB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GH_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "NPM_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "HOMEBREW_GITHUB_API_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "GOOGLE_APPLICATION_CREDENTIALS",
+          "mode": "deny"
+        }
+      ]
+    },
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "api.github.com",
+        "registry.npmjs.org",
+        "pypi.org",
+        "files.pythonhosted.org"
+      ]
+    },
+    "allowUnsandboxedCommands": false
+  }
+}

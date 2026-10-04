@@ -58,6 +58,7 @@ cp skills-reference.md statusline.py ~/.claude/
   templates/
     novel/               /novel-init のコピー元
     technical/           /tech-init のコピー元
+    team-settings/       チーム配布用の教育用 settings.json（たたき台）
 ```
 
 ------
