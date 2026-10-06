@@ -83,8 +83,8 @@ claude.ai のアカウント（Team / Pro / Max）でのログインに限定し
 
 認証情報やシェルの設定・履歴を、Claude のツールから読み書きできないようにします。
 
-- `Read` / `Edit`: すべての対象に書いている。Write と Glob はパスのルールが効かないので書いていない（Edit の 1 行でファイルを書き込むツールすべてに、Read の 1 行で Glob にも効く）
-- `Grep`: プロジェクトの中にありうるもの（`.env` / `.env.*` / `secrets/` / `*.pem` / `*.key` / `id_rsa*`）にだけ書いている。Grep は Read のルールとは別に判定されるため。ホームディレクトリ配下は、ユーザー設定の `blockReadsOutsideWorkingDirectories` で Grep も塞がるので書いていない
+- `Read` / `Edit`: すべての対象に書いている。Write / Glob / Grep はパスのルールが効かないので書いていない（Edit の 1 行でファイルを書き込むツールすべてに、Read の 1 行で Glob と Grep にも効く）
+- Grep は、検索先が Read の deny に当たれば拒否され、親ディレクトリを検索したときも deny に当たるファイルは結果から除かれる（v2.1.292 のバイナリで確認）
 
 ホームディレクトリ配下の認証情報（`~/.ssh`、`~/.aws`、`~/.config/gh`、`~/.kube`、`~/Library/Keychains` など）に加えて、プロジェクト内の `.env` や鍵ファイルも、`**/` を付けてサブディレクトリまで含めて対象にしています。`**/*.key` は Keynote の書類（`.key`）にもマッチしますが、Claude が Keynote を読むことはまずないので、そのままにしています。
 
