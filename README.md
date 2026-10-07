@@ -58,7 +58,6 @@ cp skills-reference.md statusline.py ~/.claude/
   templates/
     novel/               /novel-init のコピー元
     technical/           /tech-init のコピー元
-    team-settings/       安全寄りの settings 一式（たたき台）
 ```
 
 ------
