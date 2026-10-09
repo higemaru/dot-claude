@@ -1,58 +1,82 @@
 #!/usr/bin/env python3
-# Claude Code ステータスライン: コンテキスト使用率プログレスバー + モデル名
-import sys
+"""Claude Code statusline: model | context | 5h session | weekly limit."""
 import json
+import sys
+import time
 
-try:
-    raw = sys.stdin.read()
-    if not raw.strip():
-        sys.exit(0)
-    data = json.loads(raw)
+RESET = "\033[0m"
+DIM = "\033[2m"
 
-    model = data.get("model", {})
-    if isinstance(model, dict):
-        model_name = model.get("display_name") or model.get("id") or "Unknown"
-    elif isinstance(model, str):
-        model_name = model
-    else:
-        model_name = "Unknown"
 
-    cw = data.get("context_window", {})
-    if not isinstance(cw, dict):
-        cw = {}
+def color(pct):
+    if pct >= 80:
+        return "\033[31m"
+    if pct >= 60:
+        return "\033[33m"
+    return "\033[32m"
 
-    used = cw.get("used_percentage")
 
-    if used is None or used == "":
-        print(f"{model_name} | Context: --", end="")
-        sys.exit(0)
+def bar(pct, width=10):
+    filled = max(0, min(width, int(pct / 100 * width)))
+    return "█" * filled + "░" * (width - filled)
 
+
+def remaining(resets_at):
+    """resets_at: epoch seconds -> '4h49m' / '2d3h'."""
     try:
-        used_int = round(float(used))
-    except (ValueError, TypeError):
-        print(f"{model_name} | Context: --", end="")
-        sys.exit(0)
+        secs = int(float(resets_at) - time.time())
+    except (TypeError, ValueError):
+        return ""
+    if secs <= 0:
+        return ""
+    d, rem = divmod(secs, 86400)
+    h, rem = divmod(rem, 3600)
+    m = rem // 60
+    if d:
+        return f"{d}d{h}h"
+    if h:
+        return f"{h}h{m:02d}m"
+    return f"{m}m"
 
-    # プログレスバー生成 (20マス)
-    bar_total = 20
-    bar_filled = int(used_int * bar_total / 100)
-    if bar_filled > bar_total:
-        bar_filled = bar_total
-    elif bar_filled < 0:
-        bar_filled = 0
-    bar_empty = bar_total - bar_filled
 
-    bar = "█" * bar_filled + "░" * bar_empty
+def segment(label, info):
+    if not isinstance(info, dict) or info.get("used_percentage") is None:
+        return f"{label} --"
+    try:
+        pct = round(float(info["used_percentage"]))
+    except (TypeError, ValueError):
+        return f"{label} ?"
+    c = color(pct)
+    b = f"{bar(pct)} "
+    reset = remaining(info.get("resets_at"))
+    tail = f"{DIM} ↻{reset}{RESET}" if reset else ""
+    return f"{label} {c}{b}{pct}%{RESET}{tail}"
 
-    # 色: 0-60% 緑, 60-80% 黄, 80%以上 赤
-    if used_int >= 80:
-        color = "\033[31m"   # 赤
-    elif used_int >= 60:
-        color = "\033[33m"   # 黄
-    else:
-        color = "\033[32m"   # 緑
-    reset = "\033[0m"
 
-    print(f"{model_name} | Context: {color}[{bar}] {used_int}%{reset}", end="")
-except Exception:
-    pass
+def main():
+    try:
+        data = json.load(sys.stdin)
+    except Exception:
+        return
+
+    if not isinstance(data, dict):
+        return
+
+    model = data.get("model") or {}
+    name = (model.get("display_name") or model.get("id") or "Unknown") if isinstance(model, dict) else str(model)
+
+    parts = [name, segment("Ctx", data.get("context_window"))]
+
+    limits = data.get("rate_limits")
+    if isinstance(limits, dict) and limits:
+        parts.append(segment("5h", limits.get("five_hour")))
+        parts.append(segment("7d", limits.get("seven_day")))
+
+    sys.stdout.write(" | ".join(parts))
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception:
+        pass
