@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 
 def encode_project_path(path):
     """プロジェクトパスを ~/.claude/projects/ 以下のディレクトリ名に変換"""
-    return path.replace("/", "-")
+    return re.sub(r"[^a-zA-Z0-9]", "-", path)
 
 def extract_text(content):
     """content フィールドからテキストを取り出す"""
@@ -52,6 +52,8 @@ def jsonl_to_markdown(jsonl_path):
             entry_type = entry.get("type")
             if entry_type not in ("user", "assistant"):
                 continue
+            if entry.get("isMeta") or entry.get("isSidechain"):
+                continue  # 内部メッセージとサブエージェントの会話は省略
 
             msg = entry.get("message", {})
             content = msg.get("content", "")
