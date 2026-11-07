@@ -3,6 +3,9 @@
     "sessionUrl": false
   },
   "permissions": {
+    "allow": [
+      "Edit(~/.claude/rules/private/character_sheet.md)"
+    ],
     "deny": [
       "Read(~/.ssh/**)",
       "Edit(~/.ssh/**)",
